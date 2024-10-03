@@ -1,3 +1,4 @@
+# Kütüphanelerin yüklenmesi
 import pandas as pd
 import numpy as np
 from statsmodels.tsa.vector_ar.var_model import VAR
@@ -8,7 +9,7 @@ from statsmodels.tsa.stattools import coint
 from statsmodels.tsa.stattools import adfuller
 
 # Data yüklenmesi
-data = pd.read_excel("C:/Users/Yasin/Desktop/data.xlsx")
+data = pd.read_excel("data.xlsx")
 
 # Data kontrolü
 print(data.head())
@@ -23,6 +24,7 @@ print(data.info())
 data['Tarih'] = pd.to_datetime(data['Tarih'], format='%Y-%m')
 data.set_index("Tarih", inplace=True)
 
+# Logaritmaya Çevrilmesi
 data = np.log(data)
 
 # Trend Analizi
